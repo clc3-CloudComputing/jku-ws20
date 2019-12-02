@@ -1,0 +1,12 @@
+os: linux
+  
+language: go
+
+go:
+  - 1.13.x
+
+script:   
+  # Test the code
+  - go test -v ./...
+  # Build the code 
+  - env GOOS=linux GOARCH=amd64 go build -o demo

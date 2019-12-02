@@ -1,0 +1,17 @@
+# Pull in the layer of the base image: openjdk:8-jre-alpine
+FROM openjdk:8-jre-alpine                             
+
+# Add maintainer label 
+LABEL maintainer='<>'
+
+# Run make directory (mkdir) command
+RUN mkdir /opt/app                                    
+
+# Add a local file to the image 
+COPY my-app.jar /opt/app/app.jar                      
+
+# Mark port for port publishing
+EXPOSE 8080                                            
+
+# Set the container startup command 
+CMD java –jar /opt/app/app.jar                        
