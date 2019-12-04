@@ -8,10 +8,10 @@ LABEL maintainer='<>'
 RUN mkdir /opt/app                                    
 
 # Add a local file to the image 
-COPY my-app.jar /opt/app/app.jar                      
+COPY spring-music.jar /opt/app/app.jar                     
 
 # Mark port for port publishing
 EXPOSE 8080                                            
 
 # Set the container startup command 
-CMD java –jar /opt/app/app.jar                        
+ENTRYPOINT java -jar /opt/app/app.jar                
