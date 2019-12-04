@@ -32,7 +32,7 @@ In this exercise, you will create your own Kubernetes cluster hosted on a public
 
 1. Click on *Create Cluster*
 
-1. Create a cluster with the *default* settings except for the *Number of nodes* where you only need 1.
+1. Create a cluster with the *default* settings except for the *Number of nodes* where you only need 1 and as *Machine type* select *n1-standard-4 (4 vCPU, 15 GB memory)*.
 
     ![K8s Cluster in GKE](./assets/create_gke_cluster.png)
 
@@ -78,7 +78,7 @@ In this exercise, you will create your own Kubernetes cluster hosted on a public
 
 1. As *Kubernetes cluster name* choose any name (e.g., myname-cluster)
 
-1. For the *Node size* select DS1_v2 and for the *Node count* select 1
+1. For the *Node size* select *DS3_v2* and for the *Node count* select 1
 
     ![K8s Cluster in AKS](./assets/create_aks_cluster.png)
 
