@@ -9,7 +9,7 @@ In this exercise, you will install [Keptn](https://keptn.sh/) on your Kubernetes
 1. In your terminal, execute the following command
 
   ```console
-  keptn install --platform=<gke|aks> --keptn-version=release-0.6.0.beta
+  keptn install --platform=<gke|aks> --keptn-version=release-0.6.0.beta2
   ```
 
   :hourglass_flowing_sand: The install will take **5-10 minutes** to perform. If the installation was successful, the CLI outputs "Successfully authenticated", which means your Keptn CLI is now connected to the cluster.
