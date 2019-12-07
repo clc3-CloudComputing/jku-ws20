@@ -39,7 +39,7 @@ Therefore, first query information of your domain with
     ```console
     fmt.Fprintf(w, "Hello there, it is %d:%d", t.Hour(), getMinute(t.Minute(), t.Second()))
     ```
-    This triggers now the CI pipline, which compiles the code and pushes a new Docker image with a tag equals to the Git-commit.
+    This triggers now the CI pipline, which compiles the code and pushes a new Docker image with a tag equals to the Git-commit hash.
 
 1. Again inform keptn about the availability of a new artifact by executing the following command:
     
