@@ -21,6 +21,17 @@ In this exercise, you will create a namespace for your Kubernetes resources (i.e
 
     * This will create the namespace `demo-environment` where you can add Kubernetes resources (i.e., deployments, services, pods) to.
 
+1. Query all your namespaces with the following command and find your newly created namespace:
+    ```source
+    kubectl get namespaces
+    ```
+    ```source
+    default            Active   20m
+    demo-environment   Active   81s
+    kube-public        Active   20m
+    kube-system        Active   20m
+    ```
+
 1. Modify the deployment from exercise 2.3. so that the demo app will be deployed in the `demo-environment` namespace. Therefore, extend the `metadata` as follows:
     
     ```yaml
