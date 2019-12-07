@@ -27,10 +27,12 @@ In this exercise, you will write a Dockerfile and you will build an im
 ## Instructions
 
 1. Create a Dockerfile with the following instructions:
-    * Base image: `[xyz]`
+    * Base image: `alpine:3.10.3`
     * Set maintainer label: `maintainer=[YOUR-EMAIL]`
-    * Copy file `README.md` to the image folder `/opt/`
-    * Show the content of the `README.md` during the build process
+    * Set working directory: `/opt`
+    * Copy local file `main.go` to the image folder `/opt/`
+    * List the items in the working directory (ls)
+    * Show the content of the `main.go` during the build process (cat)
 
 1. Build a Docker image based on the Dockerfile:
     * Image tag: `[YOUR-DOCKERHUB-ACCOUNT]/my-first-image:0.0.1`
