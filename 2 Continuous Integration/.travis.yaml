@@ -1,12 +1,16 @@
 language: java
 os: linux
+
 env:
   - PRODUCTION=true
+
 before_install:
-  - echo "before_install"
+- echo before_install
+
 jobs:
   include:
   - stage: Test, compile and build
     script:
+    - cd lesson
     - mvn test -B
     - mvn build

@@ -48,7 +48,7 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
     ```yaml
     script:
     ...
-    - docker build -f Dockerfile -t YOUR_DOCKERHUB_ACC/demo:latest ./
+    - docker build -f Dockerfile -t YOUR-DOCKERHUB-ACCOUNT/demo:latest ./
     ```
 
 1. Extend the `.travis.yaml` pipeline with a Docker `tag` command in the `script` block. The tag has to be the Git commit SHA of this build:
@@ -57,7 +57,7 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
     script:
     ...
     - GIT_SHA="$(git rev-parse --short HEAD)"
-    - docker tag YOUR_DOCKERHUB_ACC/demo:latest YOUR_DOCKERHUB_ACC/demo:$GIT_SHA
+    - docker tag YOUR-DOCKERHUB-ACCOUNT/demo:latest YOUR-DOCKERHUB-ACCOUNT/demo:$GIT_SHA
     ```
 
 1. Extend the `.travis.yaml` pipeline with a Docker `push` command in the `script` block:
@@ -65,8 +65,8 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
     ```yaml
     script:
     ...
-    - docker push YOUR_DOCKERHUB_ACC/demo:latest
-    - docker push YOUR_DOCKERHUB_ACC/demo:$GIT_SHA
+    - docker push YOUR-DOCKERHUB-ACCOUNT/demo:latest
+    - docker push YOUR-DOCKERHUB-ACCOUNT/demo:$GIT_SHA
     ```
 
 1. Finally, trigger a Travis build by a code change. 

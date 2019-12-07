@@ -26,7 +26,7 @@ In this exercise, you will push an image to the container registry [DockerHub](h
 
 ## Instructions
 
-1. Authenticating to the container registry:
+1. Authenticate to the container registry:
 
     ```console
     docker login

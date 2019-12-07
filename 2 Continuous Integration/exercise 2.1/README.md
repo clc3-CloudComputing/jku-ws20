@@ -23,12 +23,24 @@ In this exercise, you will set up a *Continuous Integration* (CI) workflow using
 
 1. Add and commit `main.go` and `main_test.go` to your repository via drag-and-drop.
 
-1. Active Travis CI for your GitHub repository: https://docs.travis-ci.com/user/tutorial/
+1. Active Travis CI for your GitHub repository.
 
-1. Add and commit: `.travis.yml`
+    * Follow instructions on: https://docs.travis-ci.com/user/tutorial/#to-get-started-with-travis-ci
+
+1. Create file `.travis.yml` in your repository and copy-paste content from provided `.travis.yml` file. 
 
 1. Trigger a Travis build by a code change, e.g., change "Hello" to "Hi there" in the file `./main.go`
 
 1. Watch Travis executing your tests and building the artifact.
 
     :mag: What is your observation? 
+
+1. Optional: Add Travis CI status to the README.md: 
+
+    ![Travis CI Status](./assets/travis_status.png)
+
+    * Follow instructions on: https://docs.travis-ci.com/user/status-images/
+
+        ```
+        [![Build Status](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example.svg?branch=master)](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example)
+        ```

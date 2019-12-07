@@ -1,0 +1,29 @@
+os: linux
+  
+language: go
+
+go:
+  - 1.13.x
+
+services:
+  - docker
+
+script:
+  # Test the code    
+  - go test -v ./...
+  # Build the code 
+  - CGO_ENABLED=0 go build -o demo
+
+  # Docker login with username and password
+  - echo "$REGISTRY_PASSWORD" | docker login --username $REGISTRY_USER --password-stdin
+
+  # Docker build the container image: agrimmer/demo:latest from the Dockerfile
+  - docker build -f Dockerfile -t agrimmer/demo:latest ./
+
+  # Docker tag the container image with the Git commit SHA
+  - GIT_SHA="$(git rev-parse --short HEAD)"
+  - docker tag agrimmer/demo:latest agrimmer/demo:$GIT_SHA
+
+  # Docker push container images
+  - docker push agrimmer/demo:latest
+  - docker push agrimmer/demo:$GIT_SHA

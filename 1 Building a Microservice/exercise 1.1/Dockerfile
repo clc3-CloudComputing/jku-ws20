@@ -1,5 +1,5 @@
 # Pull in the layer of the base image: alpine:3.10.3
-                           
+FROM alpine:3.10.3     
 
 # Set maintainer label: maintainer=[YOUR-EMAIL]
 
