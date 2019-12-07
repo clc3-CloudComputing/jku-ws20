@@ -9,7 +9,7 @@ In this exercise, you will create your own Kubernetes cluster hosted on a public
 
 1. Install the [Google Cloud SDK](https://cloud.google.com/sdk/install). After installing the Google Cloud SDK, you have the command-line tool *gcloud* available in your terminal. 
 
-    * Run the command: 
+    Run the command: 
     ```console
     gcloud version
     ```
