@@ -11,7 +11,7 @@ In this exercise, you will deploy a container in a Kubernetes cluster. Thus, a p
 1. In Kubernetes, the equivalent to `docker container run` is `kubectl run`. Use this command to run your container:
 
     ```console
-    kubectl run --generator=run-pod/v1 demo --image=YOUR_DOCKERHUB_ACC/demo:latest --port=8888 --labels app=demo`
+    kubectl run --generator=run-pod/v1 demo --image=YOUR_DOCKERHUB_ACC/demo:latest --port=8888 --labels app=demo
     ```
 
 1. To verify that the container started and the app is running, use:
@@ -20,10 +20,16 @@ In this exercise, you will deploy a container in a Kubernetes cluster. Thus, a p
     kubectl get pods --selector app=demo
     ```
 
-1. To forward your local port: **9999** to the container port **8888**, use:
+1. To forward your local port **9999** to the container port **8888**, use:
     
     ```console
     kubectl port-forward pod/demo 9999:8888
     ```
 
     :mag: Now, access the website [http://localhost:9999](http://localhost:9999). What is shown there? 
+
+1. To delete the pod, use:
+
+    ```console
+    kubectl delte pod demo
+    ```
