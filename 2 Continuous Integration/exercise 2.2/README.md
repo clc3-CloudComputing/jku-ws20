@@ -24,7 +24,7 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
 
     1. Add an environment variable `REGISTRY_PASSWORD` with your DockerHub registry password. :exclamation: **Important:**  Do not display value in build log :exclamation:
 
-1. Add and commit a Dockerfile to the repository.
+1. Add and commit the provided `Dockerfile` to your repository.
 
 1. Extend the `.travis.yaml` pipeline with the Docker service:
 
@@ -71,6 +71,6 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
 
 1. Finally, trigger a Travis build by a code change. 
 
-1. Watch Travis executing your tests, building the artifact and pushing it to DockerHub.
+1. Watch Travis executing your tests, building the artifact, and pushing it to DockerHub.
 
 :mag: Go to your DockerHub account and find your image. Can you find it?

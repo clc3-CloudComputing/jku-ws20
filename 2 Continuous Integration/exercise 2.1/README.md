@@ -35,12 +35,10 @@ In this exercise, you will set up a *Continuous Integration* (CI) workflow using
 
     :mag: What is your observation? 
 
-1. Optional: Add Travis CI status to the README.md: 
+1. Optional: To add Travis CI status to the README.md, follow instructions on: https://docs.travis-ci.com/user/status-images/
 
     ![Travis CI Status](./assets/travis_status.png)
 
-    * Follow instructions on: https://docs.travis-ci.com/user/status-images/
-
-        ```
-        [![Build Status](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example.svg?branch=master)](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example)
-        ```
+    ```
+    [![Build Status](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example.svg?branch=master)](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example)
+    ```
