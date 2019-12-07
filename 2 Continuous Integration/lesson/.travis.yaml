@@ -1,16 +1,19 @@
 language: java
+install: true
+
 os: linux
+dist: trusty
+jdk: oraclejdk8
 
 env:
-  - PRODUCTION=true
+  - PRODUCTION=true
 
 before_install:
-- echo before_install
+- echo "Tasks before running job"
 
 jobs:
   include:
   - stage: Test, compile and build
     script:
-    - cd lesson
     - mvn test -B
     - mvn build
