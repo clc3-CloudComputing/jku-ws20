@@ -31,8 +31,8 @@ In this exercise, you will write a Dockerfile and you will build an im
     * Set maintainer label: `maintainer=[YOUR-EMAIL]`
     * Set working directory: `/opt`
     * Copy local file `main.go` to the image folder `/opt/`
-    * List the items in the working directory (ls)
-    * Show the content of the `main.go` during the build process (cat)
+    * List items in the working directory (ls)
+    * Show content of the `main.go` during the build process (cat)
 
 1. Build a Docker image based on the Dockerfile:
     * Image tag: `[YOUR-DOCKERHUB-ACCOUNT]/my-first-image:0.0.1`

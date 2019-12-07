@@ -7,10 +7,10 @@
 # Set working directory: `/opt`
 
 
-# Copy local file `main.go` to the image folder `/opt/`
+# Copy local file `main.go` to the working directory
 
 
-# List the items in the working directory (ls)
+# List items in the working directory (ls)
 
 
-# Show the content of the `main.go` during the build process (cat)
+# Show content of the `main.go` during the build process (cat)

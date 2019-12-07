@@ -45,9 +45,9 @@ In this exercise, you will push an image to the container registry [DockerHub](h
     docker image push [YOUR-DOCKERHUB-ACCOUNT]/my-first-image:0.0.1
     ```
 
-1. Verify the push in your account on: https://hub.docker.com/
+1. Verify the push on your account: https://hub.docker.com/
 
-1. Pull the image from another’s classmate DockerHub account:
+1. Pull the image from a classmate's DockerHub account:
 
     ```console
     docker image pull [YOUR-CLASSMATE'S-ACCOUNT]/my-first-image:0.0.1

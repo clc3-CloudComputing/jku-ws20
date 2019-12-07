@@ -13,5 +13,5 @@ COPY spring-music.jar /opt/app/app.jar
 # Mark port for port publishing
 EXPOSE 8080                                            
 
-# Set the container startup command 
+# Set the container startup command, i.e., execute the application 
 ENTRYPOINT java -jar /opt/app/app.jar                
