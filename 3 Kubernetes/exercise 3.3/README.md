@@ -4,7 +4,7 @@ In this exercise, you will specify a deployment (supervisor) for your pod by def
 
 ## Instructions
 
-1. Create a file `deployment.yaml` with the following content:
+1. Create a file `deployment.yaml` with the following content and insert your DockerHub account:
 
     ```yaml
     apiVersion: apps/v1
@@ -23,7 +23,7 @@ In this exercise, you will specify a deployment (supervisor) for your pod by def
         spec:
           containers:
           - name: demo
-            image: YOUR-DOCKERHUB-ACCOUNT/demo:hello
+            image: YOUR-DOCKERHUB-ACCOUNT/demo:latest
             ports:
             - containerPort: 8888
     ```
