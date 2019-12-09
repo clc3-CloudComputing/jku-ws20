@@ -28,7 +28,7 @@ In this exercise, you will write a Dockerfile and you will build an im
 
 1. Create a Dockerfile with the following instructions:
     * Base image: `alpine:3.10.3`
-    * Set maintainer label: `maintainer=[YOUR-EMAIL]`
+    * Set maintainer label: `maintainer='<YOUR-EMAIL'>`
     * Set working directory: `/opt`
     * Copy local file `main.go` to the image folder `/opt/`
     * List items in the working directory (ls)
