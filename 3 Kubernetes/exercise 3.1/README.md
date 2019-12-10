@@ -54,7 +54,7 @@ In this exercise, you will create your own Kubernetes cluster hosted on a public
 1. After installing the Azure CLI, you have the command-line tool `az` available in your terminal.
 
     ```console
-    az version
+    az --version
     ```
 
 1. To install `kubectl`, execute the command:
