@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: demo
-        image: cloudnatived/demo:hello
+        image: agrimmer/demo:latest
         ports:
         - containerPort: 8888
