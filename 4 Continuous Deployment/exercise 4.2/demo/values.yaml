@@ -1,2 +1,2 @@
-image: docker.io/agrimmer/demo:hello
+image: docker.io/agrimmer/demo:latest
 replicaCount: 1
