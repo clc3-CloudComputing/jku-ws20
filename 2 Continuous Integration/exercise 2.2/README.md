@@ -17,7 +17,8 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
 
 ## Instructions
 
-1. Setup credentials for DockerHub in Travis:
+1. Setup credentials for DockerHub in Travis CI:
+
     1. Click on: `More options`
 
     1. Add an environment variable `REGISTRY_USER` with your DockerHub registry user name
@@ -69,7 +70,7 @@ In this exercise, you will integrate DockerHub into the CI workflow in order to 
     - docker push YOUR-DOCKERHUB-ACCOUNT/demo:$GIT_SHA
     ```
 
-1. Finally, trigger a Travis build by a code change. 
+1. Finally, trigger a Travis CI build by a code change. 
 
 1. Watch Travis executing your tests, building the artifact, and pushing it to DockerHub.
 
