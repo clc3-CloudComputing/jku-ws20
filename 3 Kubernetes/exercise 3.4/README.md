@@ -1,6 +1,6 @@
 # Exercise 3.4: Creating a Service
 
-In this exercise, you will specify a service for your deployment by defining a service manifest (`service.yaml`). This manifest will be applied to your Kubernetes cluster to create a service resource. When the service is available, you can retrieve its *LoadBalancer Ingress* IP to access the deployment via a web browser.
+In this exercise, you will specify a service for your deployment by defining a service manifest (`service.yaml`). This manifest will be applied to your Kubernetes cluster to create a service resource. When the service is available, you can retrieve its *LoadBalancer Ingress* IP to access your demo app via a web browser.
 
 ## Instructions
 

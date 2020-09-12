@@ -22,7 +22,7 @@ In this exercise, you will build a Docker image from a Dockerfile and then run a
     docker container run -d -p 9090:8888 [your-dockerhub-account]/myhello:0.0.1
     ```
 
-1. Open a browser and go to: https://localhost:9090
+1. Open a browser and go to: http://localhost:9090
 
 1. See your container running on your local Docker daemon:
 

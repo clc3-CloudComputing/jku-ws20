@@ -31,5 +31,5 @@ In this exercise, you will deploy a container in a Kubernetes cluster. Thus, a p
 1. To delete the pod, use:
 
     ```console
-    kubectl delte pod demo
+    kubectl delete pod demo
     ```
