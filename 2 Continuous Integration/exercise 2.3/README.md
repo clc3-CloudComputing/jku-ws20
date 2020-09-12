@@ -72,6 +72,16 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
     #sonar.sourceEncoding=UTF-8
     ```
 
+1. Create a `feature` branch: `git checkout -b feature/add-fibo`
+
+1. On the `feature` branch make a code change and commit this change. 
+
+1. File a Pull Request (PR) that integrates the code change from the `feature` branch into the `master` branch. 
+
+1. Watch the GitHub Action triggering SonarCloud to scan your code. 
+
+:mag: Go to your SonarCloud account and find your check out the code analysis. 
+
 <details><summary>Optional config steps</summary>
 <p>
 
@@ -110,16 +120,6 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
     ```
 </p>
 </details>
-
-1. Create a `feature` branch: `git checkout -b feature/add-fibo`
-
-1. On the `feature` branch make a code change and commit this change. 
-
-1. File a Pull Request (PR) that integrates the code change from the `feature` branch into the `master` branch. 
-
-1. Watch the GitHub Action triggering SonarCloud to scan your code. 
-
-:mag: Go to your SonarCloud account and find your check out the code analysis. 
 
 ### Secrets
 
