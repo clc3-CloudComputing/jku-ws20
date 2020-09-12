@@ -82,7 +82,7 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
 
 :mag: Go to your SonarCloud account and find your check out the code analysis. 
 
-<details><summary>Optional config steps</summary>
+<details><summary>*Optional config steps:*</summary>
 <p>
 
 * *Optional*: You can change the analysis base directory by using the optional input `projectBaseDir` like this:
