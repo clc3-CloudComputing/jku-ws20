@@ -1,6 +1,6 @@
 # Exercise 2.3: Scan code with SonarCloud triggered by GitHub Actions
 
-In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.io/) to detects bugs, vulnerabilities and code smells. To trigger a scan, a GitHub Action will be configured that reacts on each new pull request (PR).
+In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.io/) to detects bugs, vulnerabilities and code smells. To trigger a scan, a GitHub Action will be configured that reacts on each new Pull Request (PR).
 
 *Info:* SonarCloud is a leading product for Continuous Code Quality & Code Security online, totally free for open-source projects. It supports all major programming languages, including Java, JavaScript, TypeScript, C#, C/C++ and many more. If your code is closed source, SonarCloud also offers a paid plan to run private analyses.
 
@@ -18,6 +18,8 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
 
 * The repository to analyze is set up on SonarCloud. [Set it up](https://sonarcloud.io/projects/create) in just one click.
 
+* Exercise 2.2 completed
+
 ## Instructions
 
 1. Once the respository is set up on SonarCloud, select the repository and go to `Configure`:
@@ -28,7 +30,7 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
 
     * Create a GitHub Secret
 
-    * Create or update a `.github/workflows/build.yml` file:
+    * Create or update a `.github/workflows/build.yml` file on `master` branch:
 
     ```yaml
     name: Build
@@ -53,7 +55,7 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
     ```
 
-    * Create a `sonar-project.properties` file
+    * Create a `sonar-project.properties` file on `master` branch:
     
     ```
     sonar.projectKey=******_mini-ci-example
@@ -70,7 +72,10 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
     #sonar.sourceEncoding=UTF-8
     ```
 
-1. *Optional*: You can change the analysis base directory by using the optional input `projectBaseDir` like this:
+<details><summary>Optional config steps</summary>
+<p>
+
+* *Optional*: You can change the analysis base directory by using the optional input `projectBaseDir` like this:
 
     ```yaml
     uses: sonarsource/sonarcloud-github-action@master
@@ -78,7 +83,7 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
     projectBaseDir: my-custom-directory
     ```
 
-1. *Optional*: In case you need to add additional analysis parameters, you can use the `args` option shown below. More information about possible analysis parameters is found in the documentation at: https://sonarcloud.io/documentation/analysis/analysis-parameters/
+* *Optional*: In case you need to add additional analysis parameters, you can use the `args` option shown below. More information about possible analysis parameters is found in the documentation [here](https://sonarcloud.io/documentation/analysis/analysis-parameters/).
 
     ```yaml
     - name: Analyze with SonarCloud
@@ -95,11 +100,26 @@ In this exercise, you will scan your code with [SonarCloud](https://sonarcloud.i
         -Dsonar.verbose=true
     ```
 
-* *Optional*: To add SonarCloud status to the README.md, (1) open your SonarCloud project, (2) Click **Get project badges** button, and (3) Copy the badge link based on your selection on *Metric* and *Format*:
+* *Optional*: To add SonarCloud status to the README.md:
+    1. Open your SonarCloud project
+    1. Click **Get project badges** button
+    1. Copy the badge link based on your selection on *Metric* and *Format*:
 
     ```
     [![Sonarcloud Status](https://sonarcloud.io/api/project_badges/measure?project=com.lapots.breed.judge:judge-rule-engine&metric=alert_status)](https://sonarcloud.io/dashboard?id=com.lapots.breed.judge:judge-rule-engine)
     ```
+</p>
+</details>
+
+1. Create a `feature` branch: `git checkout -b feature/add-fibo`
+
+1. On the `feature` branch make a code change and commit this change. 
+
+1. File a Pull Request (PR) that integrates the code change from the `feature` branch into the `master` branch. 
+
+1. Watch the GitHub Action triggering SonarCloud to scan your code. 
+
+:mag: Go to your SonarCloud account and find your check out the code analysis. 
 
 ### Secrets
 
