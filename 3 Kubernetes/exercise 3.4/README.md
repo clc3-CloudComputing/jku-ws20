@@ -1,9 +1,16 @@
 # Exercise 3.4: Creating a Service
 
-In this exercise, you will specify a service for your deployment by defining a service manifest (`service.yaml`). This manifest will be applied to your Kubernetes cluster to create a service resource. When the service is available, you can retrieve its *LoadBalancer Ingress* IP to access your demo app via a web browser.
+In this exercise, you will specify a service for your deployment.
+Therefore, you will use the service types *ClusterIP*, *NodePort*, and *LoadBalancer*.
+The service resource will be crated by defining a service manifest (`service.yaml`) and afterwards 
+applying it to your Kubernetes cluster.
+When the service is available, you can retrieve the different 
+service type informations to access your demo app via a web browser.
+
 
 ## Instructions
 
+### ClusterIP
 1. Create a file `service.yaml` with the following content:
 
     ```yaml
@@ -20,7 +27,7 @@ In this exercise, you will specify a service for your deployment by defining a s
         targetPort: 8888
       selector:
         app: demo
-      type: LoadBalancer
+      type: ClusterIP
     ```
 
     * The `ports`-section specifies that the Service forwards all traffic on port 80 to the Pod's port on 8888.
@@ -31,6 +38,88 @@ In this exercise, you will specify a service for your deployment by defining a s
     
     ```console
     kubectl apply -f service.yaml
+    ```
+
+1. Your service now has a cluster-internal IP, which is not exposed to the public:
+
+    ```console
+    kubectl describe service demo
+    ```
+
+    ```source
+    Name:              demo
+    Namespace:         default
+    Labels:            app=demo
+    Annotations:       Selector:  app=demo
+    Type:              ClusterIP
+    IP:                10.0.29.19
+    Port:              <unset>  80/TCP
+    TargetPort:        8888/TCP
+    Endpoints:         10.44.2.17:8888
+    Session Affinity:  None
+    Events:            <none>
+    ```
+
+1. Setup a port-forward with:
+
+    ```console
+    kubectl port-forward service/demo 8080:80
+    ```
+
+1. Use the http://localhost:8080 to access your website.
+
+    :mag: Enter http://localhost:8080 in a browser.
+
+### NodePort
+
+1. Change the service type to *NodePort* with:
+
+    ```console
+    kubectl patch service demo -p '{"spec": {"type": "NodePort"}}'
+    ```
+
+1. Your service is now exposed on each node's IP at a static port:
+
+    ```console
+    kubectl describe service demo
+    ```
+
+    ```source
+    Name:                     demo
+    Namespace:                default
+    Labels:                   app=demo
+    Annotations:              Selector:  app=demo
+    Type:                     NodePort
+    IP:                       10.0.29.19
+    Port:                     <unset>  80/TCP
+    TargetPort:               8888/TCP
+    NodePort:                 <unset>  31425/TCP
+    Endpoints:                10.44.2.17:8888
+    Session Affinity:         None
+    External Traffic Policy:  Cluster
+    Events:                   <none>
+    ```
+
+1. Get an IP of any of your nodes:
+
+    ```console
+    kubectl get nodes -owide
+    ```
+
+1. Use the IP address of any of your nodes and the assigned port to access your website.
+
+    :mag: Enter the IP:port in a browser.
+
+    **Note for cloud providers:**
+    You need to create a firewall rule to allow TCP traffic on the node port using
+    `gcloud compute firewall-rules create test-node-port --allow tcp:31425 --target-tags gke-keptn-grimmer-dev-6cb41d0c-node`
+
+### LoadBalancer
+
+1. Change the service type to *LoadBalancer* with:
+
+    ```console
+    kubectl patch service demo -p '{"spec": {"type": "LoadBalancer"}}'
     ```
 
 1. Your service now acts as *LoadBalancer* and received an externally accessible IP address. You can obtain this IP with:
@@ -60,21 +149,6 @@ In this exercise, you will specify a service for your deployment by defining a s
       ----    ------                ----  ----                -------
       Normal  EnsuringLoadBalancer  15s   service-controller  Ensuring load balancer
       Normal  EnsuredLoadBalancer   11s   service-controller  Ensured load balancer
-
-
-    Name:              kubernetes
-    Namespace:         default
-    Labels:            component=apiserver
-                      provider=kubernetes
-    Annotations:       <none>
-    Selector:          <none>
-    Type:              ClusterIP
-    IP:                10.0.0.1
-    Port:              https  443/TCP
-    TargetPort:        443/TCP
-    Endpoints:         52.191.222.87:443
-    Session Affinity:  None
-    Events:            <none>
     ```
 
 1. Use the IP address of the *LoadBalancer Ingress* to access your website.

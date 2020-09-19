@@ -11,5 +11,5 @@ spec:
     targetPort: 8888
   selector:
     app: demo
-  type: LoadBalancer
+  type: ClusterIP
   
