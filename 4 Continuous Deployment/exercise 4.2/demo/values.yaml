@@ -1,2 +1,0 @@
-image: docker.io/agrimmer/demo:latest
-replicaCount: 1

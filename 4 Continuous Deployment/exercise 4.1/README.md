@@ -1,15 +1,74 @@
-# Exercise 4.1: Installing Keptn on your Cluster
+# Exercise 4.1: Performing a Rolling Update
 
-In this exercise, you will install [Keptn](https://keptn.sh/) on your Kubernetes cluster by using the **Keptn CLI**.
+In this exercise, you will learn how to rollout a new version of our application using
+a **rolling update** strategy. Rolling updates allow Deployments' update to take place with zero downtime by incrementally updating Pods instances with new ones.
+
+In order to get a zero-downtime deployment (i.e. without having an availability gap in our deployment), we will add a readiness probe as well as a lifecycle hook:
+- The **readiness probe** checks wheter our application is ready to handle traffic.
+- The lifecycle hook **preStop** must complete before the final termination signal is being sent to our container. During this waiting time, Kubernetes will remove the Pod from the endpoints and, by this, the LoadBalancer is reconfigured before the application process is terminated.
 
 ## Instructions
 
-1. Install the Keptn CLI by following the steps described in the [documentation](https://keptn.sh/docs/0.6.0/installation/setup-keptn/).
+1. In order to prepare your deployment for a zero-downtime rolling update, you need to specify the following fields:
+  - `.spec.replicas`: Specifies the used replicas. Here at least two replicas are needed to perform a rolling update, e.g. use 3 replicas.
+  - `.spec.strategy.type`: Specifies the strategy used to replace old Pods by new ones. `.spec.strategy.type` can be "Recreate" or "RollingUpdate". "RollingUpdate" is the default value.
+  - `.spec.strategy.rollingUpdate.maxUnavailable`: Specifies the maximum number of Pods that can be unavailable during the update process
+  - `.spec.strategy.rollingUpdate.maxSurge`: Specifies the maximum number of Pods that can be created over the desired number of Pods.
+  - `.spec.container.readinessProbe`: Specifies a readiness probe for checking whether our application is ready to handle traffic.
+  - `.spec.container.lifecycle.preStop`: Specifies a lifecycle hook, which must complete before the container is terminated. 
 
-1. In your terminal, execute the following command
-
-  ```console
-  keptn install --platform=<gke|aks> --keptn-version=release-0.6.0.beta2
+  ```yaml
+  apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: demo
+  spec:
+    replicas: 3
+    selector:
+      matchLabels:
+        app: demo
+    strategy:
+      type: RollingUpdate
+      rollingUpdate:
+        maxSurge: 1
+        maxUnavailable: 1
+    template:
+      metadata:
+        labels:
+          app: demo
+      spec:
+        containers:
+        - name: demo
+          image: YOUR-DOCKERHUB-ACCOUNT/demo:time
+          ports:
+          - containerPort: 8888
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8888
+            initialDelaySeconds: 5
+          lifecycle:
+            preStop:
+              exec:
+                command: ["sleep", "15"]
   ```
 
-  :hourglass_flowing_sand: The install will take **5-10 minutes** to perform. If the installation was successful, the CLI outputs "Successfully authenticated", which means your Keptn CLI is now connected to the cluster.
+1. Watch the updating of the Pods in a terminal:
+
+  ```console
+  watch kubectl get pods
+  ```
+
+1. Open a second terminal and poll your application in a loop:
+
+  ```console
+  while true; do sleep 1; curl http://HOSTNAME; echo; done
+  ```
+
+1. Update the image of your deployment:
+
+  ```console
+  kubectl set image deployments/demo demo=agrimmer/demo:day-time
+  ```
+
+:rocket: Watch the update of your application without experiencing any downtime.
