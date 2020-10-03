@@ -12,11 +12,12 @@ by this, the LoadBalancer is reconfigured before the application process is term
 
 1. In order to prepare your deployment for a zero-downtime rolling update, you need to specify the following fields:
     - `.spec.replicas`: Specifies the used replicas. Here at least two replicas are needed to perform a rolling update, e.g. use 3 replicas.
-    - `.spec.strategy.type`: Specifies the strategy used to replace old Pods by new ones. `.spec.strategy.type` can be "Recreate" or "RollingUpdate". "RollingUpdate" is the default value.
-    - `.spec.strategy.rollingUpdate.maxUnavailable`: Specifies the maximum number of Pods that can be unavailable during the update process
+    - `.spec.strategy.type`: Specifies the strategy used to replace old Pods by new ones. `.spec.strategy.type` can be "Recreate" or "RollingUpdate".
+    - `.spec.strategy.rollingUpdate.maxUnavailable`: Specifies the maximum number of Pods that can be unavailable during the update process.
     - `.spec.strategy.rollingUpdate.maxSurge`: Specifies the maximum number of Pods that can be created over the desired number of Pods.
     - `.spec.container.readinessProbe`: Specifies a readiness probe for checking whether our application is ready to handle traffic.
     - `.spec.container.lifecycle.preStop`: Specifies a lifecycle hook, which must complete before the container is terminated. 
+
 
     ```yaml
     apiVersion: apps/v1
