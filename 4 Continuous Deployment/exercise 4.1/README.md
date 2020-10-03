@@ -5,7 +5,8 @@ a **rolling update** strategy. Rolling updates allow Deployments' update to take
 
 In order to get a zero-downtime deployment (i.e. without having an availability gap in our deployment), we will add a readiness probe as well as a lifecycle hook:
 - The **readiness probe** checks wheter our application is ready to handle traffic.
-- The lifecycle hook **preStop** must complete before the final termination signal is being sent to our container. During this waiting time, Kubernetes will remove the Pod from the endpoints and, by this, the LoadBalancer is reconfigured before the application process is terminated.
+- The lifecycle hook **preStop** allows to add a wating time before the final termination signal is being sent to our container. This allows Kubernetes to remove the Pod from the endpoints and,
+by this, the LoadBalancer is reconfigured before the application process is terminated. With this grace period, we can ensure that no requests are being routed to a terminated pod.
 
 ## Instructions
 
