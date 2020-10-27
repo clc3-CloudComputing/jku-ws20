@@ -1,8 +1,8 @@
 # Pull in the layer of the base image: openjdk:8-jre-alpine
 FROM openjdk:8-jre-alpine                             
 
-# Add maintainer label 
-LABEL maintainer='<>'
+# Add author label 
+LABEL author=johannes.braeuer@dynatrace.com
 
 # Run make directory (mkdir) command
 RUN mkdir /opt/app                                    
