@@ -5,8 +5,18 @@ language: go
 go:
   - 1.13.x
 
+# Add Docker service
+
 script:   
   # Test the code
   - go test -v ./...
   # Build the code 
   - CGO_ENABLED=0 GOARCH=amd64 go build -o demo
+
+  # Login to DockerHub
+
+  # Build the Docker image
+  
+  # Retrieve Git SHA and re-tag Docker image 
+
+  # Push images to DockerHub

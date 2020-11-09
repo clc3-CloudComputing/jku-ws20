@@ -55,5 +55,5 @@ In this exercise, you will set up a *Continuous Integration* (CI) workflow using
     ![Travis CI Status](./assets/travis_status.png)
 
     ```
-    [![Build Status](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example.svg?branch=master)](https://travis-ci.org/YOUR-GITHUB-ACCOUNT/mini-ci-example)
+    [![Build Status](https://travis-ci.com/YOUR-GITHUB-ACCOUNT/mini-ci-example.svg?branch=main)](https://travis-ci.com/YOUR-GITHUB-ACCOUNT/mini-ci-example)
     ```
