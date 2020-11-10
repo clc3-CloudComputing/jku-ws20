@@ -21,7 +21,7 @@ In this exercise, you will set up a *Continuous Integration* (CI) workflow using
 
 1. Create a GitHub repository called: `mini-ci-example`
 
-1. Add and commit `main.go`, `main_test.go`, `fib.go`, and `fib_test.go` to your repository via drag-and-drop.
+1. Add and commit `main.go`, `main_test.go`, `fib.go`, `fib_test.go`, and `go.mod` to your repository via drag-and-drop.
 
 1. Active Travis CI for your GitHub repository.
 
