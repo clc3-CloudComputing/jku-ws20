@@ -71,6 +71,7 @@ service type informations to access your demo app via a web browser.
     :mag: Enter http://localhost:8080 in a browser.
 
 ### NodePort
+**Note for `kind` users:** This service type requires a [dedicated `kind` configuration](https://kind.sigs.k8s.io/docs/user/configuration/#extra-port-mappings).
 
 1. Change the service type to *NodePort* with:
 
@@ -115,6 +116,7 @@ service type informations to access your demo app via a web browser.
     `gcloud compute firewall-rules create test-node-port --allow tcp:31425 --target-tags gke-keptn-grimmer-dev-6cb41d0c-node`
 
 ### LoadBalancer
+**Note for `kind` users:** This service type is not supported.
 
 1. Change the service type to *LoadBalancer* with:
 
