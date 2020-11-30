@@ -11,7 +11,7 @@ In this exercise, you will deploy a container in a Kubernetes cluster. Thus, a p
 1. In Kubernetes, the equivalent to `docker container run` is `kubectl run`. Use this command to run your container:
 
     ```console
-    kubectl run --generator=run-pod/v1 demo --image=YOUR_DOCKERHUB_ACC/demo:time --port=8888 --labels app=demo
+    kubectl run --generator=run-pod/v1 demo --image=agrimmer/demo:time --port=8888 --labels app=demo
     ```
 
 1. To verify that the container started and the app is running, use:
