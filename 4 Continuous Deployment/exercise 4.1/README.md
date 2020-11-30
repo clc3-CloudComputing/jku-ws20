@@ -41,7 +41,7 @@ by this, the LoadBalancer is reconfigured before the application process is term
         spec:
           containers:
           - name: demo
-            image: YOUR-DOCKERHUB-ACCOUNT/demo:time
+            image: agrimmer/demo:time
             ports:
             - containerPort: 8888
             readinessProbe:
