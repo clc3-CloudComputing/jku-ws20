@@ -33,5 +33,3 @@ In this exercise, you will deploy a container in a Kubernetes cluster. Thus, a p
     ```console
     kubectl delete pod demo
     ```
-
-1. Increase the number of replicas to 3. Research at least two different approaches.
