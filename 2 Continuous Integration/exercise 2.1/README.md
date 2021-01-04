@@ -19,7 +19,7 @@ In this exercise, you will set up a *Continuous Integration* (CI) workflow using
 
 ## Instructions
 
-1. Create a GitHub repository called: `mini-ci-example`
+1. Create a **public** GitHub repository called: `mini-ci-example`
 
 1. Add and commit `main.go`, `main_test.go`, `fib.go`, `fib_test.go`, and `go.mod` to your repository via drag-and-drop.
 
